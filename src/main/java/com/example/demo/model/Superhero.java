@@ -20,27 +20,27 @@ public class Superhero {
 	@Column(name = "name")
 	private String name;
 	
-	@Enumerated(EnumType.STRING)
-	@Column(name = "status")
-	private Status status;
-	
 	@Column(name = "brand")
 	private String brand;
 	
 	@Column(name = "year")
 	private int year;
 	
+	@Enumerated(EnumType.STRING)
+	@Column(name = "status")
+	private Status status;
+	
 	public Superhero() {
 		
 	}
 	
-	public Superhero(long id, String name, Status status, String brand, int year) {
+	public Superhero(long id, String name, String brand, int year, Status status) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.status = status;
 		this.brand = brand;
 		this.year = year;
+		this.status = status;
 	}
 
 	public long getId() {
@@ -53,18 +53,6 @@ public class Superhero {
 	
 	public String getName() {
 		return name;
-	}
-	
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	public Status getStatus() {
-		return status;
-	}
-	
-	public void setStatus(Status status) {
-		this.status = status;
 	}
 	
 	public String getBrand() {
@@ -82,11 +70,25 @@ public class Superhero {
 	public void setYear(int year) {
 		this.year = year;
 	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public Status getStatus() {
+		return status;
+	}
+	
+	public void setStatus(Status status) {
+		this.status = status;
+	}
 
 	@Override
 	public String toString() {
-		return "Superhero [id=" + id + ", name=" + name + ", status=" + status + ", brand=" + brand + ", year="
-				+ year + "]";
+		return "Superhero [id=" + id + ", name=" + name + ", brand=" + brand + ", year=" + year + ", status=" + status
+				+ "]";
 	}
+
+	
 
 }
