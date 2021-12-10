@@ -10,8 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "comic_book_characters")
-public class ComicBookCharacter {
+@Table(name = "superheroes")
+public class Superhero {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +22,7 @@ public class ComicBookCharacter {
 	
 	@Enumerated(EnumType.STRING)
 	@Column(name = "status")
-	private CharacterStatus status;
+	private Status status;
 	
 	@Column(name = "brand")
 	private String brand;
@@ -30,11 +30,11 @@ public class ComicBookCharacter {
 	@Column(name = "year")
 	private int year;
 	
-	public ComicBookCharacter() {
+	public Superhero() {
 		
 	}
 	
-	public ComicBookCharacter(long id, String name, CharacterStatus status, String brand, int year) {
+	public Superhero(long id, String name, Status status, String brand, int year) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -59,11 +59,11 @@ public class ComicBookCharacter {
 		this.name = name;
 	}
 	
-	public CharacterStatus getStatus() {
+	public Status getStatus() {
 		return status;
 	}
 	
-	public void setStatus(CharacterStatus status) {
+	public void setStatus(Status status) {
 		this.status = status;
 	}
 	
@@ -85,7 +85,7 @@ public class ComicBookCharacter {
 
 	@Override
 	public String toString() {
-		return "ComicBookCharacter [id=" + id + ", name=" + name + ", status=" + status + ", brand=" + brand + ", year="
+		return "Superhero [id=" + id + ", name=" + name + ", status=" + status + ", brand=" + brand + ", year="
 				+ year + "]";
 	}
 

@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ComicBookCharBackEndApplication {
+public class SuperheroBackEndApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ComicBookCharBackEndApplication.class, args);
+		SpringApplication.run(SuperheroBackEndApplication.class, args);
 	}
 
 }
