@@ -1,10 +1,13 @@
 package com.example.demo.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -54,6 +57,18 @@ public class SuperheroController {
 		
 		Superhero updatedSuperhero = superheroRepository.save(superhero);
 		return ResponseEntity.ok(updatedSuperhero);
+		
+	}
+	
+	@DeleteMapping("/superheroes/{id}")
+	public ResponseEntity<Map<String, Boolean>> deleteSuperhero(@PathVariable Long id){
+		Superhero superhero = superheroRepository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Superhero with id: " + id + " does not exist."));
+		
+		superheroRepository.delete(superhero);
+		Map<String, Boolean> response = new HashMap<>();
+		response.put("deleted", Boolean.TRUE);
+		return ResponseEntity.ok(response);
 		
 	}
 }
